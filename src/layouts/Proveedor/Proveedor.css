@@ -1,0 +1,9 @@
+.datosProveedor {
+    display: grid;
+    grid-template-columns: 280px 200px 1fr;
+}
+
+.nit2 {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 1fr;
+}

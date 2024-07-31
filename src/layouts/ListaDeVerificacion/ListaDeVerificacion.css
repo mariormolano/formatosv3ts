@@ -1,0 +1,17 @@
+.chkList>div {
+    display: flex;
+    width: 30px;
+    height: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.chkList>div {
+    display: flex;
+    width: 100%;
+}
+
+.def {
+    text-align: center;
+    width: 4cm;
+}

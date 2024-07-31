@@ -1,0 +1,51 @@
+.DialogoFlotante {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    height: 80px;
+    width: 150px;
+    border: 1px solid black;
+    background-color: #5289f7d5;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.582);
+    z-index: 200;
+}
+
+.DialogoFlotante>div:nth-child(1) {
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.DialogoFlotante>div:nth-child(1)>div {
+    display: flex;
+    border: 1px solid black;
+    color: white;
+    background-color: #103580;
+    width: 16px;
+    height: 22px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.DialogoFlotante>div:nth-child(1)>div:hover {
+    display: flex;
+    border: 1px solid black;
+    color: #002060;
+    background-color: #4f81bd;
+    width: 16px;
+    height: 22px;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.DialogoFlotante>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}

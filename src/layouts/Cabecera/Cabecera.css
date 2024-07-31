@@ -1,0 +1,25 @@
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.cabecera>img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+}
+
+.cabecera>p:nth-child(2) {
+    font-size: 15px;
+}
+
+.cabecera>h1 {
+    font-size: 25px;
+    font-weight: 700;
+}

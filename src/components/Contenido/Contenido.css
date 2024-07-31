@@ -1,0 +1,11 @@
+.Contenido{
+    display: flex;
+    gap: 5px;
+    margin: 5px;
+    justify-content: center;
+}
+@media print {
+.Contenido{
+    display: none;
+  }
+}

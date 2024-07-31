@@ -1,0 +1,21 @@
+.texto_descripcion {
+  word-wrap: break-word;
+  width: 100%;
+  p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.descripcionTextarea {
+  position: absolute;
+  width: 19.6cm;
+  height: 4cm;
+  text-align: center;
+  text-wrap: break-word;
+  text-transform: uppercase;
+  @media print {
+    display: none;
+  }
+}

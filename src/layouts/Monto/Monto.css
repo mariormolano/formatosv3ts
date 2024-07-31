@@ -1,0 +1,52 @@
+.valor {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 90px 440px 110px 1fr;
+}
+
+.bordeValor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 9pt;
+  font-family: Arial;
+  height: 22px;
+  border: 1px solid #4f81bd;
+  background-color: #002060;
+  font-weight: bold;
+}
+
+.bordeValor2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #002060;
+  font-size: 9pt;
+  font-family: Arial;
+  height: 22px;
+  border: 1px solid #4f81bd;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  input {
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    width: 2.68cm;
+    height: 22px;
+    @media print {
+      display: none;
+    }
+  }
+}
+.valor_factura {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}

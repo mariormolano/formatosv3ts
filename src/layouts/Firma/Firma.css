@@ -1,0 +1,33 @@
+.linea_firma {
+    position: relative;
+    width: 5cm;
+    left: calc(50% - 2.5cm);
+    color: #333333;
+    font-size: 10pt;
+    font-family: Arial;
+    border-top-style: solid;
+    border-top-color: #000000;
+    text-align: center ! important;
+    font-weight: bold;
+}
+
+.firma {
+    height: 0.912cm;
+    width: 4.72cm;
+    color: #333333;
+    font-size: 10pt;
+    font-family: Arial;
+    vertical-align: bottom;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-width: NaNcm;
+    border-top-style: none;
+    text-align: center ! important;
+    margin-left: 0cm;
+    writing-mode: horizontal-tb;
+    direction: ltr;
+    font-style: normal;
+    text-shadow: none;
+    font-weight: bold;
+}
