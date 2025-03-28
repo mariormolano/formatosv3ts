@@ -3,13 +3,13 @@ import "./Referencia.css";
 import { BaseSyntheticEvent, useEffect, useState } from "react";
 import { useStore } from "exome/react";
 
-import { globalStore } from "@services/states/GlobalStore";
-import { mantenimientoStore } from "@services/states/MantenimientoStore";
-import { cuentaDeCobroStore } from "@services/states/CuentaDeCobroStore";
-import { cotizacionStore } from "@services/states/CotizaciónStore";
+import { globalStore } from "@core/stores/GlobalStore";
+import { mantenimientoStore } from "@core/stores/MantenimientoStore";
+import { cuentaDeCobroStore } from "@core/stores/CuentaDeCobroStore";
+import { cotizacionStore } from "@core/stores/CotizaciónStore";
 
-import { ListaMeses } from "@enums/Listado.enum";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { ListaMeses } from "@core/enums/Listado.enum";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 const Referencia = ({ titulo }: { titulo: string }) => {
   //
@@ -18,10 +18,10 @@ const Referencia = ({ titulo }: { titulo: string }) => {
   const { Cliente: CuentaDeCobroID } = useStore(cuentaDeCobroStore);
   const { Cliente: CotizacionID } = useStore(cotizacionStore);
 
-  const [fecha, setFecha] = useState("XX/XX/XXXX");
+  const [ fecha, setFecha ] = useState("XX/XX/XXXX");
 
-  const [id, setId] = useState(0);
-  const [TipoCodigo, setTipoCodigo] = useState("");
+  const [ id, setId ] = useState(0);
+  const [ TipoCodigo, setTipoCodigo ] = useState("");
 
   const numeroMes = ListaMeses.findIndex((indiceMes) => indiceMes === Mes) + 1;
   const mesCodigo =
@@ -44,7 +44,7 @@ const Referencia = ({ titulo }: { titulo: string }) => {
         setTipoCodigo("T");
         break;
     }
-  }, [Tipo]);
+  }, [ Tipo ]);
 
   const cambioFecha = (e: BaseSyntheticEvent) => {
     const fechaEntrada = e.target.value.replaceAll("-", " ");
@@ -62,16 +62,16 @@ const Referencia = ({ titulo }: { titulo: string }) => {
         <p>FECHA DE REMISIÓN:</p>
       </div>
       <div className="borde2 fecha--container">
-        <input type="date" className="fecha" onChange={cambioFecha} />
-        <p id="fecha_factura">{fecha}</p>
+        <input type="date" className="fecha" onChange={ cambioFecha } />
+        <p id="fecha_factura">{ fecha }</p>
       </div>
       <div className="borde1">
-        <p>{titulo} NUMERO:</p>
+        <p>{ titulo } NUMERO:</p>
       </div>
       <div className="borde2">
         <p id="codigo_factura">
-          {TipoCodigo}
-          {id}-24{mesCodigo}
+          { TipoCodigo }
+          { id }-25{ mesCodigo }
         </p>
       </div>
       <p>&nbsp;</p>

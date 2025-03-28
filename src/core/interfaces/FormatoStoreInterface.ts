@@ -1,5 +1,5 @@
 import { ClientesInterface } from "./ClientesInterface";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 export interface FormatoStoreInterface {
   //atributos

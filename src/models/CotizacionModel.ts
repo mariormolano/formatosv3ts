@@ -1,4 +1,4 @@
-import { CotizacionInterface } from "@interfaces/CotizacionInterface";
+import { CotizacionInterface } from "@core/interfaces/CotizacionInterface";
 
 export class CotizacionModel implements CotizacionInterface {
   public id = null;

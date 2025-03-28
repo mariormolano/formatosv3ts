@@ -1,17 +1,17 @@
 import "./Monto.css";
 
 import { useStore } from "exome/react";
-import { mantenimientoStore } from "@services/states/MantenimientoStore";
-import { cuentaDeCobroStore } from "@services/states/CuentaDeCobroStore";
-import { cotizacionStore } from "@services/states/CotizaciónStore";
-import { globalStore } from "@services/states/GlobalStore";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { mantenimientoStore } from "@core/stores/MantenimientoStore";
+import { cuentaDeCobroStore } from "@core/stores/CuentaDeCobroStore";
+import { cotizacionStore } from "@core/stores/CotizaciónStore";
+import { globalStore } from "@core/stores/GlobalStore";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 import { useEffect, useState } from "react";
 
 const Monto = () => {
   const { Tipo } = useStore(globalStore);
-  const [monto, setMonto] = useState<string>();
-  const [montoTexto, setMontoTexto] = useState<string>();
+  const [ monto, setMonto ] = useState<string>();
+  const [ montoTexto, setMontoTexto ] = useState<string>();
 
   const {
     ValorTotalFinal: ValorTotalMantenimiento,
@@ -62,27 +62,27 @@ const Monto = () => {
         </div>
         <div className="bordeValor2">
           <p id="valor_letras_factura">
-            {montoTexto} {montoTexto && "PESOS M/C"}
+            { montoTexto } { montoTexto && "PESOS M/C" }
           </p>
         </div>
         <div className="bordeValor">
           <p>NÚMEROS</p>
         </div>
         <div className="bordeValor2">
-          {Tipo === FormatosEnum.CuentaDeCobro && (
+          { Tipo === FormatosEnum.CuentaDeCobro && (
             <input
               type="text"
-              onChange={(e) => {
+              onChange={ (e) => {
                 console.log(isNaN(parseInt(e.target.value)));
 
                 setValorTotal(
                   isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value)
                 );
-              }}
-              value={monto}
+              } }
+              value={ monto }
             />
-          )}
-          $ {monto}
+          ) }
+          $ { monto }
         </div>
       </div>
       <p>&nbsp;</p>

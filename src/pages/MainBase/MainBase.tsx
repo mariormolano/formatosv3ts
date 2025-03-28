@@ -1,10 +1,10 @@
 import FormatoBase from "@layouts/FormatoBase/FormatoBase";
 import ListaDeVerificacion from "@layouts/ListaDeVerificacion/ListaDeVerificacion";
-import { TitulosFormatosMock } from "@mocks/TitulosFormatosMock";
+import { TitulosFormatosMock } from "@core/mocks/TitulosFormatosMock";
 
 import { useStore } from "exome/react";
-import { globalStore } from "@services/states/GlobalStore";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { globalStore } from "@core/stores/GlobalStore";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 import { useEffect } from "react";
 
@@ -15,21 +15,21 @@ const MainBase = () => {
 
   useEffect(() => {
     console.log("El cliente es: ", Edificio);
-  }, [Edificio]);
+  }, [ Edificio ]);
 
   switch (Tipo) {
     case FormatosEnum.Mantenimiento:
       return (
         <>
-          <FormatoBase formato={TitulosFormatosMock[0]} />
-          <FormatoBase formato={TitulosFormatosMock[1]} />
+          <FormatoBase formato={ TitulosFormatosMock[ 0 ] } />
+          <FormatoBase formato={ TitulosFormatosMock[ 1 ] } />
           <ListaDeVerificacion />
         </>
       );
     case FormatosEnum.CuentaDeCobro:
-      return <FormatoBase formato={TitulosFormatosMock[0]} />;
+      return <FormatoBase formato={ TitulosFormatosMock[ 0 ] } />;
     case FormatosEnum.Cotizacion:
-      return <FormatoBase formato={TitulosFormatosMock[0]} />;
+      return <FormatoBase formato={ TitulosFormatosMock[ 0 ] } />;
   }
 };
 

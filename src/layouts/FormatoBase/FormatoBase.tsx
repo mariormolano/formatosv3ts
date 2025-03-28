@@ -12,9 +12,9 @@ import SaltoDePagina from "@comp/SaltoDePagina/SaltoDePagina";
 
 import { useStore } from "exome/react";
 import { useEffect, useState } from "react";
-import { globalStore } from "@services/states/GlobalStore";
-import { TitulosFormatosInterface } from "@interfaces/TitulosFormatosInterface";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { globalStore } from "@core/stores/GlobalStore";
+import { TitulosFormatosInterface } from "@core/interfaces/TitulosFormatosInterface";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 import CotizacionLista from "@comp/CotizacionLista/CotizacionLista";
 
 const FormatoBase = ({ formato }: { formato: TitulosFormatosInterface }) => {
@@ -26,7 +26,7 @@ const FormatoBase = ({ formato }: { formato: TitulosFormatosInterface }) => {
     DescripcionContenido,
   } = formato;
 
-  const [Titulo, setTitulo] = useState<string>("");
+  const [ Titulo, setTitulo ] = useState<string>("");
 
   const { Tipo, Edificio, Mes } = useStore(globalStore);
 
@@ -42,33 +42,33 @@ const FormatoBase = ({ formato }: { formato: TitulosFormatosInterface }) => {
         setTitulo(" Cotización ");
         break;
     }
-  }, [Tipo]);
+  }, [ Tipo ]);
 
   useEffect(() => {
     document.title =
       Edificio + Titulo + Mes.toUpperCase() + " " + new Date().getFullYear();
-  }, [Edificio, Mes, Titulo]);
+  }, [ Edificio, Mes, Titulo ]);
 
   return (
     <div className="FormatoBase">
-      <Cabecera titulo={CabeceraTitulo} />
-      <Referencia titulo={ReferenciaTitulo} />
+      <Cabecera titulo={ CabeceraTitulo } />
+      <Referencia titulo={ ReferenciaTitulo } />
       <DatosEdificio />
-      {MontoProvedor ? <Proveedor /> : null}
+      { MontoProvedor ? <Proveedor /> : null }
 
-      {Tipo === FormatosEnum.Cotizacion ? (
+      { Tipo === FormatosEnum.Cotizacion ? (
         <CotizacionLista />
       ) : (
         <Descripcion
-          titulo={DescripcionTitulo}
+          titulo={ DescripcionTitulo }
           contenido={
             Tipo === FormatosEnum.Mantenimiento ? DescripcionContenido : ""
           }
         />
-      )}
-      {MontoProvedor ? <Monto /> : null}
+      ) }
+      { MontoProvedor ? <Monto /> : null }
       <Firma />
-      {Tipo === FormatosEnum.Mantenimiento && <SaltoDePagina />}
+      { Tipo === FormatosEnum.Mantenimiento && <SaltoDePagina /> }
     </div>
   );
 };

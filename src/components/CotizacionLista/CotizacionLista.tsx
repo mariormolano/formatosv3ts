@@ -3,7 +3,7 @@ import "./CotizacionLista.css";
 //import { useEffect } from "react";
 import { useStore } from "exome/react";
 //import { globalStore } from "@services/states/GlobalStore";
-import { cotizacionStore } from "@services/states/CotizaciónStore";
+import { cotizacionStore } from "@core/stores/CotizaciónStore";
 //import { CotizacionInterface } from "@interfaces/CotizacionInterface";
 
 const CotizacionLista = () => {
@@ -25,30 +25,30 @@ const CotizacionLista = () => {
             <div className="valorUnitario borde1">Valor Unitario</div>
             <div className="valorTotal borde1">Valor Total</div>
           </div>
-          {ListaCotizacion.map((_, indice: number) => {
+          { ListaCotizacion.map((_, indice: number) => {
             return (
-              <div key={indice} className="Cotizacion">
+              <div key={ indice } className="Cotizacion">
                 <div className="id borde2">
-                  {typeof ListaCotizacion[indice].id === "number" &&
-                  ListaCotizacion[indice].descripcion
-                    ? ListaCotizacion[indice].id + 1
-                    : null}
+                  { typeof ListaCotizacion[ indice ].id === "number" &&
+                    ListaCotizacion[ indice ].descripcion
+                    ? ListaCotizacion[ indice ].id + 1
+                    : null }
                 </div>
                 <div className="descripcion borde2">
                   <input
                     type="text"
                     name="descripcion"
                     id="descripcion"
-                    value={ListaCotizacion[indice].descripcion}
-                    onChange={(e) => {
+                    value={ ListaCotizacion[ indice ].descripcion }
+                    onChange={ (e) => {
                       setListaCotizacion({
-                        ...ListaCotizacion[indice],
+                        ...ListaCotizacion[ indice ],
                         descripcion: e.target.value,
                         id: indice,
                       });
-                    }}
+                    } }
                   />
-                  {ListaCotizacion[indice].descripcion}
+                  { ListaCotizacion[ indice ].descripcion }
                 </div>
                 <div className="cantidad borde2">
                   <input
@@ -56,26 +56,26 @@ const CotizacionLista = () => {
                     name="cantidad"
                     id="cantidad"
                     value={
-                      ListaCotizacion[indice].cantidad === 0
+                      ListaCotizacion[ indice ].cantidad === 0
                         ? ""
-                        : ListaCotizacion[indice].cantidad
+                        : ListaCotizacion[ indice ].cantidad
                     }
                     pattern="[0-9]{1,3}"
-                    onChange={(e) => {
+                    onChange={ (e) => {
                       setListaCotizacion({
-                        ...ListaCotizacion[indice],
+                        ...ListaCotizacion[ indice ],
                         cantidad:
                           typeof parseInt(e.target.value) === "number" &&
-                          e.target.value.length > 0
+                            e.target.value.length > 0
                             ? parseInt(e.target.value)
                             : 0,
                         id: indice,
                       });
-                    }}
+                    } }
                   />
-                  {ListaCotizacion[indice].cantidad > 0
-                    ? ListaCotizacion[indice].cantidad
-                    : null}
+                  { ListaCotizacion[ indice ].cantidad > 0
+                    ? ListaCotizacion[ indice ].cantidad
+                    : null }
                 </div>
                 <div className="valorUnitario borde2">
                   <input
@@ -83,35 +83,35 @@ const CotizacionLista = () => {
                     name="valorUnitario"
                     id="valorUnitario"
                     value={
-                      ListaCotizacion[indice].valorUnitario === 0
+                      ListaCotizacion[ indice ].valorUnitario === 0
                         ? ""
-                        : ListaCotizacion[indice].valorUnitario
+                        : ListaCotizacion[ indice ].valorUnitario
                     }
                     pattern="[0-9]{1,3}"
-                    onChange={(e) => {
+                    onChange={ (e) => {
                       setListaCotizacion({
-                        ...ListaCotizacion[indice],
+                        ...ListaCotizacion[ indice ],
                         valorUnitario:
                           typeof parseInt(e.target.value) === "number" &&
-                          e.target.value.length > 0
+                            e.target.value.length > 0
                             ? parseInt(e.target.value)
                             : 0,
                         id: indice,
                       });
-                    }}
+                    } }
                   />
-                  {ListaCotizacion[indice].valorUnitario > 0
-                    ? ListaCotizacion[indice].valorUnitario
-                    : null}
+                  { ListaCotizacion[ indice ].valorUnitario > 0
+                    ? ListaCotizacion[ indice ].valorUnitario
+                    : null }
                 </div>
                 <div className="valorTotal borde3">
-                  {ListaCotizacion[indice].valorTotal > 0
-                    ? ListaCotizacion[indice].valorTotal
-                    : null}
+                  { ListaCotizacion[ indice ].valorTotal > 0
+                    ? ListaCotizacion[ indice ].valorTotal
+                    : null }
                 </div>
               </div>
             );
-          })}
+          }) }
         </div>
       </div>
       <p>&nbsp;</p>

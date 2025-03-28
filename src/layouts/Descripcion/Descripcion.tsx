@@ -2,7 +2,7 @@ import "./Descripcion.css";
 
 import { useState } from "react";
 import { useStore } from "exome/react";
-import { globalStore } from "@services/states/GlobalStore";
+import { globalStore } from "@core/stores/GlobalStore";
 
 const Descripcion = ({
   titulo,
@@ -17,7 +17,7 @@ const Descripcion = ({
     ? contenido + Mes.toUpperCase()
     : contenido;
 
-  const [descripcionCuadro, setDescripcion] =
+  const [ descripcionCuadro, setDescripcion ] =
     useState<string>(contenidoDescripcion);
 
   // const descripcionTexto = () => {
@@ -28,7 +28,7 @@ const Descripcion = ({
   return (
     <div>
       <div className="borde3">
-        <p> {titulo} </p>
+        <p> { titulo } </p>
       </div>
       <div className="borde2">
         <div className="texto_descripcion">
@@ -39,11 +39,11 @@ const Descripcion = ({
           >
             <textarea
               className="descripcionTextarea"
-              onChange={(e) => setDescripcion(e.target.value)}
+              onChange={ (e) => setDescripcion(e.target.value) }
             >
-              {descripcionCuadro}
+              { descripcionCuadro }
             </textarea>
-            {descripcionCuadro}
+            { descripcionCuadro }
           </p>
         </div>
       </div>

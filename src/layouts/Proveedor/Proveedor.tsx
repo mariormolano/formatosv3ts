@@ -1,18 +1,18 @@
 import "./Proveedor.css";
 import { useStore } from "exome/react";
-import { globalStore } from "@services/states/GlobalStore";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { globalStore } from "@core/stores/GlobalStore";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 const Proveedor = () => {
   const { Tipo } = useStore(globalStore);
   return (
     <div>
       <div className="borde3_2">
-        {Tipo === FormatosEnum.Cotizacion ? <p>COTIZACIÓN</p> : null}
-        {Tipo === FormatosEnum.Mantenimiento ||
-        Tipo === FormatosEnum.CuentaDeCobro ? (
+        { Tipo === FormatosEnum.Cotizacion ? <p>COTIZACIÓN</p> : null }
+        { Tipo === FormatosEnum.Mantenimiento ||
+          Tipo === FormatosEnum.CuentaDeCobro ? (
           <p>CUENTA DE COBRO</p>
-        ) : null}
+        ) : null }
       </div>
 
       <div className="datosProveedor">

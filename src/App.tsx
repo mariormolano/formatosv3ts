@@ -5,7 +5,7 @@ import MainBase from "@pages/MainBase/MainBase";
 
 // Exome
 import { useStore } from "exome/react";
-import { globalStore } from "@services/states/GlobalStore";
+import { globalStore } from "@core/stores/GlobalStore";
 
 function App() {
   const { Mes, Edificio } = useStore(globalStore);

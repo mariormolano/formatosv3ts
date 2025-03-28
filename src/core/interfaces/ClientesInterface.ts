@@ -3,6 +3,5 @@ export interface ClientesInterface {
   id: string;
   direccion: string;
   telefono: string;
-  montoTexto: string;
   monto: number;
 }

@@ -2,11 +2,11 @@
 import { Exome } from "exome";
 //Interfaces
 //import { TitulosFormatosInterface } from "@interfaces/TitulosFormatosInterface";
-import { ClientesInterface } from "@interfaces/ClientesInterface";
+import { ClientesInterface } from "@core/interfaces/ClientesInterface";
 //Listados
 //import { TitulosFormatosMock } from "@mocks/TitulosFormatosMock";
-import { ClientesMock } from "@mocks/ClientesMock";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { ClientesMock } from "@core/mocks/ClientesMock";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 class GlobalStore extends Exome {
   public ValorTotal: number = 0;

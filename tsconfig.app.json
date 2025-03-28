@@ -25,16 +25,17 @@
     "baseUrl": ".",
     "paths": {
       "@*": ["src/*"],
+      "@core/*": ["src/core/*"],
       "@comp/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
       "@states/*": ["src/modules/slices/*"],
       "@modules/*": ["src/modules/*"],
-      "@services/*": ["src/services/*"],
+      "@services/*": ["src/core/services/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@enums/*": ["src/enums/*"],
-      "@mocks/*": ["src/mocks/*"],
+      "@interfaces/*": ["src/core/interfaces/*"],
+      "@enums/*": ["src/core/enums/*"],
+      "@mocks/*": ["src/core/mocks/*"],
       "@models/*": ["src/models/*"],
       "@pages/*": ["src/pages/*"]
     }

@@ -1,12 +1,12 @@
 import "./DatosEdificio.css";
 import { useStore } from "exome/react";
-import { mantenimientoStore } from "@services/states/MantenimientoStore";
-import { cuentaDeCobroStore } from "@services/states/CuentaDeCobroStore";
-import { cotizacionStore } from "@services/states/CotizaciónStore";
-import { globalStore } from "@services/states/GlobalStore";
+import { mantenimientoStore } from "@core/stores/MantenimientoStore";
+import { cuentaDeCobroStore } from "@core/stores/CuentaDeCobroStore";
+import { cotizacionStore } from "@core/stores/CotizaciónStore";
+import { globalStore } from "@core/stores/GlobalStore";
 import { useEffect, useState } from "react";
-import { ClientesInterface } from "@interfaces/ClientesInterface";
-import { FormatosEnum } from "@enums/Listado.enum";
+import { ClientesInterface } from "@core/interfaces/ClientesInterface";
+import { FormatosEnum } from "@core/enums/Listado.enum";
 
 const DatosEdificio = () => {
   //const { FormatoActivo } = useStore(globalStore);
@@ -16,7 +16,7 @@ const DatosEdificio = () => {
   const { Cliente: ClienteCotizacion } = useStore(cotizacionStore);
   const { Tipo } = useStore(globalStore);
 
-  const [Cliente, setCliente] = useState<ClientesInterface>();
+  const [ Cliente, setCliente ] = useState<ClientesInterface>();
 
   useEffect(() => {
     switch (Tipo) {
@@ -30,7 +30,7 @@ const DatosEdificio = () => {
         setCliente(ClienteCotizacion);
         break;
     }
-  }, [Tipo]);
+  }, [ Tipo ]);
 
   return (
     <div>
@@ -45,13 +45,13 @@ const DatosEdificio = () => {
           <p>TELÉFONO</p>
         </div>
         <div className="borde2">
-          <p id="edificio_factura">{Cliente?.edificio}</p>
+          <p id="edificio_factura">{ Cliente?.edificio }</p>
         </div>
         <div className="borde2">
-          <p id="dicreccion_factura">{Cliente?.direccion}</p>
+          <p id="dicreccion_factura">{ Cliente?.direccion }</p>
         </div>
         <div className="borde2">
-          <p id="telefono_factura">{Cliente?.telefono}</p>
+          <p id="telefono_factura">{ Cliente?.telefono }</p>
         </div>
       </div>
       <div className="nit">

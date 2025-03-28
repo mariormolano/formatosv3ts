@@ -1,4 +1,4 @@
-import { TitulosFormatosInterface } from "@interfaces/TitulosFormatosInterface";
+import { TitulosFormatosInterface } from "@core/interfaces/TitulosFormatosInterface";
 
 export const TitulosFormatosMock: TitulosFormatosInterface[] = [
   {

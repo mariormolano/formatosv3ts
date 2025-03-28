@@ -3,14 +3,14 @@ import "./Stepper.css";
 import { useState } from "react";
 
 import { useStore } from "exome/react";
-import { globalStore } from "@services/states/GlobalStore";
-import { ListaDeFormatos, ListaMeses, FormatosEnum } from "@enums/Listado.enum";
-import { mantenimientoStore } from "@services/states/MantenimientoStore";
-import { cuentaDeCobroStore } from "@services/states/CuentaDeCobroStore";
-import { cotizacionStore } from "@services/states/CotizaciónStore";
+import { globalStore } from "@core/stores/GlobalStore";
+import { ListaDeFormatos, ListaMeses, FormatosEnum } from "@core/enums/Listado.enum";
+import { mantenimientoStore } from "@core/stores/MantenimientoStore";
+import { cuentaDeCobroStore } from "@core/stores/CuentaDeCobroStore";
+import { cotizacionStore } from "@core/stores/CotizaciónStore";
 
 const Stepper = () => {
-  const [activeStep, setActiveStep] = useState(1);
+  const [ activeStep, setActiveStep ] = useState(1);
 
   const {
     //FormatoActivo,
@@ -35,25 +35,25 @@ const Stepper = () => {
   return (
     <div className="Stepper">
       <section>
-        {activeStep == 1 ? (
+        { activeStep == 1 ? (
           <div>
-            <h2>Formatos: {Tipo}</h2>
+            <h2>Formatos: { Tipo }</h2>
             <section>
-              {ListaDeFormatos.map((formato: FormatosEnum) => (
-                <div onClick={() => setTipo(formato)} key={formato}>
-                  {formato}
+              { ListaDeFormatos.map((formato: FormatosEnum) => (
+                <div onClick={ () => setTipo(formato) } key={ formato }>
+                  { formato }
                 </div>
-              ))}
+              )) }
             </section>
           </div>
-        ) : null}
-        {activeStep === 2 ? (
+        ) : null }
+        { activeStep === 2 ? (
           <div>
-            <h2>Edificio: {Edificio}</h2>
+            <h2>Edificio: { Edificio }</h2>
             <section>
-              {edificios.map((edificio, id) => (
+              { edificios.map((edificio, id) => (
                 <div
-                  onClick={() => {
+                  onClick={ () => {
                     setEdificio(edificio);
                     switch (Tipo) {
                       case FormatosEnum.Mantenimiento:
@@ -66,23 +66,23 @@ const Stepper = () => {
                         setClienteCotizacion(id);
                         break;
                     }
-                  }}
-                  key={id}
+                  } }
+                  key={ id }
                 >
-                  {edificio}
+                  { edificio }
                 </div>
-              ))}
+              )) }
             </section>
           </div>
-        ) : null}
-        {activeStep === 3 ? (
+        ) : null }
+        { activeStep === 3 ? (
           <div>
             <div>
-              <h2>Mes: {Mes}</h2>
+              <h2>Mes: { Mes }</h2>
               <section>
-                {ListaMeses.map((mes) => (
+                { ListaMeses.map((mes) => (
                   <div
-                    onClick={() => {
+                    onClick={ () => {
                       setMes(mes);
                       switch (Tipo) {
                         case FormatosEnum.Mantenimiento:
@@ -95,26 +95,26 @@ const Stepper = () => {
                           cotizacionStore.setMes(mes);
                           break;
                       }
-                    }}
-                    key={mes}
+                    } }
+                    key={ mes }
                   >
-                    {mes}
+                    { mes }
                   </div>
-                ))}
+                )) }
               </section>
             </div>
           </div>
-        ) : null}
+        ) : null }
       </section>
       <section>
         <button
-          onClick={() => setActiveStep(activeStep - 1)}
-          disabled={activeStep === 1}
+          onClick={ () => setActiveStep(activeStep - 1) }
+          disabled={ activeStep === 1 }
         >
           Back
         </button>
         <button
-          onClick={() => setActiveStep(activeStep + 1)}
+          onClick={ () => setActiveStep(activeStep + 1) }
           disabled={
             (activeStep === 1 && !Tipo) ||
             (activeStep === 2 && !Edificio) ||

@@ -1,8 +1,8 @@
-import { FormatosEnum } from "@enums/Listado.enum";
-import { ClientesInterface } from "@interfaces/ClientesInterface";
-import { FormatoStoreInterface } from "@interfaces/FormatoStoreInterface";
-import { ClientesMock } from "@mocks/ClientesMock";
-import { convertToText } from "@modules/ConvertToText";
+import { FormatosEnum } from "@core/enums/Listado.enum";
+import { ClientesInterface } from "@core/interfaces/ClientesInterface";
+import { FormatoStoreInterface } from "@core/interfaces/FormatoStoreInterface";
+import { ClientesMock } from "@core/mocks/ClientesMock";
+import { convertToText } from "@core/services/ConvertToText";
 import { Exome } from "exome";
 
 class CuentaDeCobroStore extends Exome implements FormatoStoreInterface {
